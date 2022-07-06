@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import socket
-port = raw_input('Su quale porta apri il servizio?> ')
+port = input('Su quale porta apri il servizio?> ')
 queuelen = 5
 buflen = 80
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)   # Creazione del socket
@@ -13,7 +13,7 @@ try:
         data = client.recv(buflen)                      # Ricezione messaggio
         if data:
             client.send(data)                           # Spedizione messaggio
-            print ('Stringa scambiata: '+data)
+            print ('Stringa scambiata: '+ data.decode("utf-8"))
             client.close()                              # Chiusura socket
             print ('Servizio concluso')
 except KeyboardInterrupt:
